@@ -24,7 +24,8 @@ constant \avogadro-constant is export(:physics :fundamental :defined) = Constant
   name        => 'Avogadro constant', 
   value       => 6.02214076e+23, 
   uncertainty => 0, 
-  units       => 'mol⁻¹'
+  units       => 'mol⁻¹',
+  symbol      => 'L'
 );
 constant \kg-amu is export(:DEFAULT :physics :fundamental :defined) := avogadro-constant;
 constant \L      is export(:DEFAULT :physics :fundamental :defined) := avogadro-constant;
@@ -41,7 +42,8 @@ constant \elementary-charge is export(:DEFAULT :physics :fundamental :defined) =
   name        => 'elementary charge', 
   value       => 1.602176634e-19, 
   uncertainty => 0, 
-  units       => 'C'
+  units       => 'C',
+  symbol      -> 'q'
 );
 constant \q  is export(:DEFAULT :physics :fundamental :defined) := elementary-charge;
 
@@ -49,7 +51,8 @@ constant \planck-constant is export(:physics :fundamental :defined) = Constant.n
   name        => 'Planck constant', 
   value       => 6.62607015e-34, 
   uncertainty => 0, 
-  units       => 'J·Hz⁻¹'
+  units       => 'J·Hz⁻¹',
+  symbol      => 'ℎ'
 );
 constant \plancks-h is export(:DEFAULT :physics :fundamental :defined) := planck-constant;
 constant \ℎ         is export(:DEFAULT :physics :fundamental :defined) := planck-constant;
@@ -58,7 +61,8 @@ constant \speed-of-light-vacuum is export(:DEFAULT :physics :fundamental :define
   name        => 'speed of light in vacuum', 
   value       => 299792458, 
   uncertainty => 0, 
-  units       => 'm·s⁻¹'
+  units       => 'm·s⁻¹',
+  symbol      => 'c'
 );
 constant \c  is export(:DEFAULT :physics :fundamental :defined) := speed-of-light-vacuum;
 
@@ -83,7 +87,8 @@ constant \standard-acceleration-gravity is export(:DEFAULT :physics :defined) = 
   name        => 'standard acceleration of gravity',
   value       => 9.80665,
   uncertainty => 0,
-  units       => 'm·s⁻²'
+  units       => 'm·s⁻²',
+  symbol      => 'g'
 );
 constant \g is export(:DEFAULT :physics :defined) := standard-acceleration-gravity;
 
@@ -123,7 +128,8 @@ constant \reduced-planck-constant is export(:physics :derived) = Constant.new(
   name        => 'reduced Planck constant',
   value       => ℎ / (2 * π),
   uncertainty => 0,
-  units       => 'J·s'
+  units       => 'J·s',
+  symbol      => 'ℏ'
 );
 constant \plancks-reduced-h  is export(:DEFAULT :physics :derived) := reduced-planck-constant;
 constant \ℏ  is export(:DEFAULT :physics :derived) := reduced-planck-constant;
@@ -146,7 +152,8 @@ constant \electron-volt is export(:DEFAULT :physics :derived) = Constant.new(
   name        => 'electron volt',
   value       => +q,
   uncertainty => 0,
-  units       => 'J'
+  units       => 'J',
+  symbol      => 'eV'
 );
 constant \eV is export(:DEFAULT :physics :derived) := electron-volt;
 
@@ -182,34 +189,36 @@ constant \josephson-constant is export(:physics :derived) = Constant.new(
   name        => 'Josephson constant',
   value       => 2 * q / ℎ,
   uncertainty => 0,
-  units       => 'Hz·V⁻¹'
+  units       => 'Hz·V⁻¹',
+  symbol      => 'Kj'
 );
+constant \Kj   is export(:physics :derived) := josephson-constant;
 
 constant \conventional-value-of-josephson-constant is export(:physics :derived) = Constant.new(
   name        => 'conventional value of Josephson constant',
   value       => 4.835979e14,
   uncertainty => 0,
-  units       => 'Hz·V⁻¹'
+  units       => 'Hz·V⁻¹',
+  symbol      => 'Kj90'
 );
-
-constant \Kj   is export(:physics :derived) := josephson-constant;
 constant \Kj90 is export(:physics :derived) := conventional-value-of-josephson-constant;
 
 constant \von-klitzing-constant is export(:physics :derived) = Constant.new(
   name        => 'von Klitzing constant',
   value       => ℎ / q²,
   uncertainty => 0,
-  units       => 'Ω'
+  units       => 'Ω',
+  symbol      => 'RK'
 );
+constant \RK   is export(:physics :derived) := von-klitzing-constant;
 
 constant \conventional-value-of-von-klitzing-constant is export(:physics :derived) = Constant.new(
   name        => 'conventional value of von Klitzing constant',
   value       => 25812.807,
   uncertainty => 0,
-  units       => 'Ω'
+  units       => 'Ω',
+  symbol      => 'RK90'
 );
-
-constant \RK   is export(:physics :derived) := von-klitzing-constant;
 constant \RK90 is export(:physics :derived) := conventional-value-of-von-klitzing-constant;
 
 constant \conventional-value-of-ampere_90 is export(:physics :derived) = Constant.new(
@@ -308,7 +317,8 @@ constant \faraday-constant is export(:DEFAULT :physics :derived) = Constant.new(
   name        => 'Faraday constant',
   value       => q * Na,
   uncertainty => 0,
-  units       => 'C·mol⁻¹'
+  units       => 'C·mol⁻¹',
+  symbol      => 'F'
 );
 constant \F is export(:DEFAULT :physics :derived) := faraday-constant;
 
@@ -499,7 +509,8 @@ constant \kilogram-joule-relationship is export(:physics :derived) = Constant.ne
   name        => 'kilogram-joule relationship',
   value       => c²,
   uncertainty => 0,
-  units       => 'J'
+  units       => 'J',
+  symbol      => 'K0'
 );
 constant \coulomb-constant is export(:DEFAULT :physics :derived) := kilogram-joule-relationship;
 constant \K0               is export(:DEFAULT :physics :derived) := kilogram-joule-relationship;
@@ -1303,7 +1314,8 @@ constant \fine-structure-constant is export(:DEFAULT :physics :measured) = Const
   name        => 'fine-structure constant',
   value       => 7.2973525693e-3,
   uncertainty => 0.0000000011e-3,
-  units       => ''
+  units       => '',
+  symbol      => 'α'
 );
 constant \α is export(:DEFAULT :physics :measured) := fine-structure-constant;
 
@@ -1913,7 +1925,8 @@ constant \newtonian-constant-of-gravitation is export(:physics :measured) = Cons
   name        => 'Newtonian constant of gravitation',
   value       => 6.67430e-11,
   uncertainty => 0.00015e-11,
-  units       => 'm³·kg⁻¹·s⁻²'
+  units       => 'm³·kg⁻¹·s⁻²',
+  symbol      => 'G'
 );
 constant \gravitation-constant is export(:DEFAULT :physics :measured) := newtonian-constant-of-gravitation;
 constant \G                    is export(:DEFAULT :physics :measured) := newtonian-constant-of-gravitation;
@@ -1964,7 +1977,8 @@ constant \planck-length is export(:DEFAULT :physics :measured) = Constant.new(
   name        => 'Planck length',
   value       => 1.616255e-35,
   uncertainty => 0.000018e-35,
-  units       => 'm'
+  units       => 'm',
+  symbol      => 'lp'
 );
 constant \lp is export(:DEFAULT :physics :measured) := planck-length;
 
@@ -1972,7 +1986,8 @@ constant \planck-mass is export(:DEFAULT :physics :measured) = Constant.new(
   name        => 'Planck mass',
   value       => 2.176434e-8,
   uncertainty => 0.000024e-8,
-  units       => 'kg'
+  units       => 'kg',
+  symbol      => 'mp'
 );
 constant \mp is export(:DEFAULT :physics :measured) := planck-mass;
 
@@ -1987,7 +2002,8 @@ constant \planck-temperature is export(:DEFAULT :physics :measured) = Constant.n
   name        => 'Planck temperature',
   value       => 1.416784e32,
   uncertainty => 0.000016e32,
-  units       => 'K'
+  units       => 'K',
+  symbol      => 'Tp'
 );
 constant \Tp is export(:DEFAULT :physics :measured) := planck-temperature;
 
@@ -1995,7 +2011,8 @@ constant \planck-time is export(:DEFAULT :physics :measured) = Constant.new(
   name        => 'Planck time',
   value       => 5.391247e-44,
   uncertainty => 0.000060e-44,
-  units       => 's'
+  units       => 's',
+  symbol      => 'tp'
 );
 constant \tp is export(:DEFAULT :physics :measured) := planck-time;
 
@@ -2514,7 +2531,8 @@ constant \vacuum-electric-permittivity is export(:physics :measured) = Constant.
   name        => 'vacuum electric permittivity',
   value       => 8.8541878128e-12,
   uncertainty => 0.0000000013e-12,
-  units       => 'F·m⁻¹'
+  units       => 'F·m⁻¹',
+  symbol      => 'ε0'
 );
 constant \vacuum-permittivity is export(:DEFAULT :physics :measured) := vacuum-electric-permittivity;
 constant \ε0                  is export(:DEFAULT :physics :measured) := vacuum-electric-permittivity;
@@ -2523,7 +2541,8 @@ constant \vacuum-mag-permeability is export(:physics :measured) = Constant.new(
   name        => 'vacuum mag. permeability',
   value       => 1.25663706212e-6,
   uncertainty => 0.00000000019e-6,
-  units       => 'N·A⁻²'
+  units       => 'N·A⁻²',
+  symbol      => 'μ0'
 );
 constant \magnetic-permeability is export(:DEFAULT :physics :measured) := vacuum-mag-permeability;
 constant \vacuum-permeability   is export(:DEFAULT :physics :measured) := vacuum-mag-permeability;
@@ -2546,98 +2565,106 @@ constant \w-to-z-mass-ratio is export(:physics :measured) = Constant.new(
 # Mathematics constants
 
 my constant phi                           is export(:DEFAULT :math) = Constant.new(
-  name => 'Golden Ratio',
-  value => 1.61803398874989e0
+  name   => 'Golden Ratio',
+  value  => 1.61803398874989e0,
+  symbol => 'φ'
 );
 my constant φ  is export := phi;
 
 my constant alpha-feigenbaum-constant     is export(:DEFAULT :math) = Constant.new(
-  name => 'alpha Feigenbaum constant',
+  name  => 'alpha Feigenbaum constant',
   value => 2.502907875095892822283e0
 );
 
 my constant delta-feigenbaum-constant     is export(:DEFAULT :math) = Constant.new(
-  name => 'delta Feigenbaum constant',
-  value => 4.669201609102990e0
+  name   => 'delta Feigenbaum constant',
+  value  => 4.669201609102990e0,
+  symbol => 'δ'
 );
 my constant δ  is export(:DEFAULT :math) := delta-feigenbaum-constant;
 
 my constant apery-constant                is export(:DEFAULT :math) = Constant.new(
-  name => 'Apery constant',
+  name  => 'Apery constant',
   value => 1.2020569031595942853997381e0
 );
 
 my constant conway-constant               is export(:DEFAULT :math) = Constant.new(
-  name => 'Conway constant',
-  value => 1.303577269034e0
+  name   => 'Conway constant',
+  value  => 1.303577269034e0,
+  symbol => 'λ'
 );
 my constant λ  is export(:DEFAULT :math) := conway-constant;
 
 my constant khinchin-constant             is export(:DEFAULT :math) = Constant.new(
-  name => 'Khinchin constant',
-  value => 2.6854520010e0
+  name   => 'Khinchin constant',
+  value  => 2.6854520010e0,
+  symbol => 'k0'
 );
 my constant k0 is export(:DEFAULT :math) := khinchin-constant;
 
 my constant glaisher-kinkelin-constant    is export(:DEFAULT :math) = Constant.new(
-  name => 'Glaisher-Kinkelin constant',
-  value => 1.2824271291e0
+  name   => 'Glaisher-Kinkelin constant',
+  value  => 1.2824271291e0,
+  symbol => 'A'
 );
 my constant A  is export(:DEFAULT :math) := glaisher-kinkelin-constant;
 
 my constant golomb-dickman-constant       is export(:DEFAULT :math) = Constant.new(
-  name => 'Golomb Dickman constant',
+  name  => 'Golomb Dickman constant',
   value => 0.62432998854355e0
 );
 
 my constant catalan-constant              is export(:DEFAULT :math) = Constant.new(
-  name => 'Catalan constant',
+  name  => 'Catalan constant',
   value => 0.915965594177219015054603514e0
 );
 
 my constant mill-constant                 is export(:DEFAULT :math) = Constant.new(
-  name => 'Mill constant',
+  name  => 'Mill constant',
   value => 1.3063778838630806904686144e0
 );
 
 my constant gauss-constant                is export(:DEFAULT :math) = Constant.new(
-  name => 'Gauss Constant',
+  name  => 'Gauss Constant',
   value => 0.8346268e0
 );
 
 my constant euler-mascheroni-gamma        is export(:DEFAULT :math) = Constant.new(
-  name => 'Euler Mascheroni constant',
-  value => 0.57721566490153286060e0
+  name   => 'Euler Mascheroni constant',
+  value  => 0.57721566490153286060e0,
+  symbol => 'γ'
 );
 my constant γ is export(:DEFAULT :math) := euler-mascheroni-gamma;
 
 my constant sierpinski-gamma              is export(:DEFAULT :math) = Constant.new(
-  name => 'Sierpinski gamma',
-  value => 2.5849817595e0
+  name   => 'Sierpinski gamma',
+  value  => 2.5849817595e0,
+  symbol => 'k'
 );
 my constant k  is export(:DEFAULT :math) := sierpinski-gamma;
+
 # Use them as units
 
-sub postfix:<c>  (Real $value) is export {
+sub postfix:<c>  (Real $value) is export(:DEFAULT :physics :fundamental :defined) {
     return c*$value;
 }
 
-sub postfix:<g>  (Real $value) is export {
+sub postfix:<g>  (Real $value) is export(:DEFAULT :physics :defined) {
     return g*$value;
 }
 
-sub postfix:<eV>  (Real $value) is export {
+sub postfix:<eV>  (Real $value) is export(:DEFAULT :physics :derived) {
     return $value / eV;
 }
 
 =begin pod
 =head1 Math::Constants
 
-Math::Constants - A few constants defined in Perl6
+Math::Constants - A few constants defined in Raku
 
 =head1 SYNOPSIS
 
-	#!/usr/bin/env perl6
+	#!/usr/bin/env raku
 	
 	use v6;
 	use Math::Constants;
@@ -2656,49 +2683,518 @@ Math::Constants - A few constants defined in Perl6
 Math::Constants is a collection of Math and Physics constants that
 will save you the trouble of defining them.
 
+=head2 Constant values
+
+Each constant is defined as an object, an instance of a class which contains the
+necessary information for the constant. (This behaviour is new in version 0.9.)
+
+The accessors available for each constant are:
+=begin item
+value
+
+This is the value of the constant. All constants have a useful value!
+=end item
+
+=begin item
+name
+
+This is the name of the constant. For the physics constants, this contains the full
+name of the constant as given by NIST.
+=end item
+
+=begin item
+uncertainty
+
+This is the uncertainty in the value of the constant. Where the value is known exactly
+then this is given as 0.
+=end item
+
+=begin item
+units
+
+This is a string containing the units of the physics constant.
+=end item
+
+When the constant is evaluated in a numeric or string context, the value of the
+constant is used. This is compatible with usage of the module in version 0.1.1
+or older.
+
+For example, C<my $speed = 0.1 × speed-of-light-vacuum; say $speed> will produce
+"C<29979245.8>".
+
+However, be careful. The object contains an explicit C<gist> method which will
+generate a string containing the value, the uncertainity (if given) and the
+units (if given). Thus a program using C<say> directly on a constant defined
+here will give unexpected results: "C<say speed-of-light-vacuum;>" will produce
+"C<299792458 m·s⁻¹>", and "C<say alpha-particle-mass;>" will produce
+"C<6.6446573357e-27±2e-36 kg>". The space before the units is a unicode thin
+space as specified by the SI standards.
+
+=head2 EXPORT tags
+
+To decrease the pollution of your programs name-space, several tags are available.
+
+In order to maintain compatibility with earlier versions of this module,
+the DEFAULT tag has been applied to exactly those constants which were
+defined in the previously released version of this module -- 0.1.1.
+
+Thus the code
+  C<use Math::Constants;>
+will define exactly the same constants in all versions 0.1.1 and later.
+
+The code
+  C<use Math::Constants math;>
+will define all math constants; no physics constants will be defined.
+
+More variety is possible in deciding which physics constants will be defined.
+
+The seven fundamental physics constants can be included by using the C<fundamental> tag.
+These are the seven constants which define the SI system of units: the speed of light,
+Planck's constant, elementary charge, Boltzmann's constants, Avogadro's constant,
+The hyperfine transition frequency of Cs, and the luminous efficacy of 540 THz radiation.
+
+Other physics constants which are defined exactly, such as the standard acceleration
+due to gravity, can be included using the C<defined> tag.
+
+Constants which are derived from other constants which are defined exactly
+(i.e. those using the C<fundamental> and C<defined> tags)
+can be defined by including the C<derived> tag.
+These constants are calculated from the values from which they are derived
+rather than using the values given by NIST. This gives more precise values,
+the values given by NIST being truncated with less precision that is
+available using 64-bit floating point numbers.
+
+The remaining constants, those which rely on physical measurements, can be included by
+using the C<measured> tag. Note that constants which at first sight appear as if they
+could be calculated from other measured values are B<not> calculated, but the NIST values are used.
+The precision with which (for example) the ratio of the proton and electron masses can be measured
+might be greater than the precision with which either of the two individual masses can be measured.
+
 =head2 Constants included
+
+=head3 Mathematical constants
+=begin table
+Constant name                                                  | variable name | DEFAULT | math
+=============================================================|===============|=========|=========
+Golden ratio | phi | DFLT | math
+Golden ratio | φ | DFLT | math
+Feigenbaum constants | alpha-feigenbaum-constant | DFLT | math
+Feigenbaum constants | delta-feigenbaum-constant | DFLT | math
+Feigenbaum constants | δ | DFLT | math
+Apéry's constant | apery-constant | DFLT | math
+Conway's constant | conway-constant | DFLT | math
+Conway's constant | λ | DFLT | math
+Khinchin's constant | khinchin-constant | DFLT | math
+Khinchin's constant | k0 | DFLT | math
+Glaisher–Kinkelin constant | glaisher-kinkelin-constant | DFLT | math
+Glaisher–Kinkelin constant | A | DFLT | math
+Golomb–Dickman constant | golomb-dickman-constant | DFLT | math
+Catalan's constant | catalan-constant | DFLT | math
+Mill's constant | mill-constant | DFLT | math
+Gauss's constant | gauss-constant | DFLT | math
+Euler–Mascheroni constant | euler-mascheroni-gamma | DFLT | math
+Euler–Mascheroni constant | γ | DFLT | math
+Sierpiński's constant | sierpinski-gamma | DFLT | math
+Sierpiński's constant | k | DFLT | math
+=end table
 
 =head3 Physical constants
 
 All the physical constants have the CODATA 2018 recommended values. These reflect the new definitions of the kilogram and ampere as of 2019-05-20.
+All constants given in L<https://physics.nist.giv/cuu/Constants> are defined here. Constants whose value can be derived from other exact values
+are calculated, and so will give more precise values than those in the NIST tables, but all agree to the level of precision given by NIST.
 
-=item L<Gravitational constant|https://en.wikipedia.org/wiki/Gravitational_constant> as C<gravitation-constant> and C<G>.
-=item L<Speed of light|https://en.wikipedia.org/wiki/Speed_of_light> as C<speed-of-light-vacuum> and C<c>. It works also as a suffix for expressing speeds, as in C<3c> for 3 times the speed of light. 
-=item L<Planck constant and reduced constant|https://en.wikipedia.org/wiki/Planck_constant> in J/s as C<plancks-h> or C<ℎ> and C<plancks-reduced-h> or C<ℏ>.
-=item L<Boltzmann constant|https://en.wikipedia.org/wiki/Boltzmann_constant> as C<boltzmann-constant>. Previous versions of Math::Constants had this in eV. The value is now in standard SI units. The eV postfix operator can be used to get the previous value if needed.
-=item L<Coulomb constant|https://en.wikipedia.org/wiki/Coulomb_constant> as C<coulomb-constant> or C<K0>.
-=item L<Mass of an electron|https://en.wikipedia.org/wiki/Electron> as C<electron-mass>.
-=item L<Electron volt|https://en.wikipedia.org/wiki/Electronvolt> as C<electron-volt> and C<eV> or as an operator.
-=item L<Elementary charge|https://en.wikipedia.org/wiki/Elementary_charge> as C<elementary-charge> or C<q>.
-=item L<Faraday constant|https://en.wikipedia.org/wiki/Faraday_constant> as C<faraday-constant> or C<F>.
-=item L<The fine structure constant|https://en.wikipedia.org/wiki/Fine_structure> as C<fine-structure-constant> or C<α>.
-=item L<Gas constant|https://en.wikipedia.org/wiki/Gas_constant> as C<gas-constant>.
-=item L<Avogadro's constant|https://en.wikipedia.org/wiki/Avogadro_constant> as C<avogadro-constant> or C<L>.
-=item L<Vacuum magnetic permeability|https://en.wikipedia.org/wiki/Vacuum_permeability> as C<magnetic-permeability> or C<μ0>.
-=item L<Mass of a neutron|https://en.wikipedia.org/wiki/Neutron> as C<neutron-mass>.
-=item L<Mass of an alpha particle|https://en.wikipedia.org/wiki/Alpha_particle> as C<alpha-particle-mass>.
-=item L<Planck length|https://en.wikipedia.org/wiki/Planck_length> as C<planck-length> or C<lp>.
-=item L<Planck mass|https://en.wikipedia.org/wiki/Planck_mass> as C<planck-mass> or C<mp>.
-=item L<Planck temperature|https://en.wikipedia.org/wiki/Planck_temperature> as C<planck-temperature> or C<Tp>.
-=item L<Planck time|https://en.wikipedia.org/wiki/Planck_time> as C<planck-time> or C<tp>.
-=item L<Mass of a proton|https://en.wikipedia.org/wiki/Proton> as C<proton-mass>.
-=item The quantum ratio (elementary charge / Planck constant> as C<quantum-ratio>.
-=item L<Standard acceleration due to gravity|https://en.wikipedia.org/wiki/Standard_gravity> as C<standard-acceleration-gravity> or C<g>.
-=item L<Vacuum electrical permittivity|https://en.wikipedia.org/wiki/Vacuum_permittivity> as C<vacuum-permittivity> or C<ε0>.
-
-=head3 Mathematical constants
-=item L<Golden ratio|https://en.wikipedia.org/wiki/Golden_ratio> as C<phi> or C<φ>.
-=item L<Feigenbaum constants|https://en.wikipedia.org/wiki/Feigenbaum_constants> as C<alpha-feigenbaum-constant> and C<delta-feigenbaum-constant> or C<δ>.
-=item L<Apéry's constant|https://en.wikipedia.org/wiki/Ap%C3%A9ry%27s_constant> as C<apery-constant>.
-=item L<Conway's constant|https://en.wikipedia.org/wiki/Look-and-say_sequence#Growth_in_length> as C<conway-constant> and C<λ>.
-=item L<Khinchin's constant|https://en.wikipedia.org/wiki/Khinchin%27s_constant> as C<khinchin-constant> and C<k0>.
-=item L<Glaisher–Kinkelin constant|https://en.wikipedia.org/wiki/Glaisher%E2%80%93Kinkelin_constant> as C<glaisher-kinkelin-constant> and C<A>.
-=item L<Golomb–Dickman constant|https://en.wikipedia.org/wiki/Golomb%E2%80%93Dickman_constant> as C<golomb-dickman-constant>. 
-=item L<Catalan's constant|https://en.wikipedia.org/wiki/Catalan%27s_constant> as C<catalan-constant>. 
-=item L<Mill's constant|https://en.wikipedia.org/wiki/Mills%27_constant> as C<mill-constant>. 
-=item L<Gauss's constant|https://en.wikipedia.org/wiki/Gauss%27s_constant> as C<gauss-constant>. 
-=item L<Euler–Mascheroni constant|https://en.wikipedia.org/wiki/Euler%E2%80%93Mascheroni_constant> as C<euler-mascheroni-gamma> and C<γ>. 
-=item L<Sierpiński's constant|https://en.wikipedia.org/wiki/Sierpi%C5%84ski%27s_constant> as C<sierpinski-gamma> and C<k>. 
+=begin table
+CODATA name                                                  | variable name | DEFAULT | physics | fundamental | defined | derived | measured
+=============================================================|===============|=========|=========|=============|=========|=========|==========
+alpha particle-electron mass ratio                           | alpha-particle-electron-mass-ratio                           |   | phys |   |   |   | msrd
+alpha particle mass                                          | alpha-particle-mass                                          | DFLT | phys |   |   |   | msrd
+alpha particle mass energy equivalent                        | alpha-particle-mass-energy-equivalent                        |   | phys |   |   |   | msrd
+alpha particle mass energy equivalent in MeV                 | alpha-particle-mass-energy-equivalent-in-MeV                 |   | phys |   |   |   | msrd
+alpha particle mass in u                                     | alpha-particle-mass-in-u                                     |   | phys |   |   |   | msrd
+alpha particle molar mass                                    | alpha-particle-molar-mass                                    |   | phys |   |   |   | msrd
+alpha particle-proton mass ratio                             | alpha-particle-proton-mass-ratio                             |   | phys |   |   |   | msrd
+alpha particle relative atomic mass                          | alpha-particle-relative-atomic-mass                          |   | phys |   |   |   | msrd
+Angstrom star                                                | angstrom-star                                                |   | phys |   |   |   | msrd
+atomic mass constant                                         | atomic-mass-constant                                         |   | phys |   |   |   | msrd
+atomic mass constant energy equivalent                       | atomic-mass-constant-energy-equivalent                       |   | phys |   |   |   | msrd
+atomic mass constant energy equivalent in MeV                | atomic-mass-constant-energy-equivalent-in-MeV                |   | phys |   |   |   | msrd
+atomic mass unit-electron volt relationship                  | atomic-mass-unit-electron-volt-relationship                  |   | phys |   |   |   | msrd
+atomic mass unit-hartree relationship                        | atomic-mass-unit-hartree-relationship                        |   | phys |   |   |   | msrd
+atomic mass unit-hertz relationship                          | atomic-mass-unit-hertz-relationship                          |   | phys |   |   |   | msrd
+atomic mass unit-inverse meter relationship                  | atomic-mass-unit-inverse-meter-relationship                  |   | phys |   |   |   | msrd
+atomic mass unit-joule relationship                          | atomic-mass-unit-joule-relationship                          |   | phys |   |   |   | msrd
+atomic mass unit-kelvin relationship                         | atomic-mass-unit-kelvin-relationship                         |   | phys |   |   |   | msrd
+atomic mass unit-kilogram relationship                       | atomic-mass-unit-kilogram-relationship                       |   | phys |   |   |   | msrd
+atomic unit of 1st hyperpolarizability                       | atomic-unit-of_1st-hyperpolarizability                       |   | phys |   |   |   | msrd
+atomic unit of 2nd hyperpolarizability                       | atomic-unit-of_2nd-hyperpolarizability                       |   | phys |   |   |   | msrd
+atomic unit of action                                        | atomic-unit-of-action                                        |   | phys |   |   | drvd |  
+atomic unit of charge                                        | atomic-unit-of-charge                                        |   | phys |   |   | drvd |  
+atomic unit of charge density                                | atomic-unit-of-charge-density                                |   | phys |   |   |   | msrd
+atomic unit of current                                       | atomic-unit-of-current                                       |   | phys |   |   |   | msrd
+atomic unit of electric dipole mom.                          | atomic-unit-of-electric-dipole-mom                           |   | phys |   |   |   | msrd
+atomic unit of electric field                                | atomic-unit-of-electric-field                                |   | phys |   |   |   | msrd
+atomic unit of electric field gradient                       | atomic-unit-of-electric-field-gradient                       |   | phys |   |   |   | msrd
+atomic unit of electric polarizability                       | atomic-unit-of-electric-polarizability                       |   | phys |   |   |   | msrd
+atomic unit of electric potential                            | atomic-unit-of-electric-potential                            |   | phys |   |   |   | msrd
+atomic unit of electric quadrupole mom.                      | atomic-unit-of-electric-quadrupole-mom                       |   | phys |   |   |   | msrd
+atomic unit of energy                                        | atomic-unit-of-energy                                        |   | phys |   |   |   | msrd
+atomic unit of force                                         | atomic-unit-of-force                                         |   | phys |   |   |   | msrd
+atomic unit of length                                        | atomic-unit-of-length                                        |   | phys |   |   |   | msrd
+atomic unit of mag. dipole mom.                              | atomic-unit-of-mag-dipole-mom                                |   | phys |   |   |   | msrd
+atomic unit of mag. flux density                             | atomic-unit-of-mag-flux-density                              |   | phys |   |   |   | msrd
+atomic unit of magnetizability                               | atomic-unit-of-magnetizability                               |   | phys |   |   |   | msrd
+atomic unit of mass                                          | atomic-unit-of-mass                                          |   | phys |   |   |   | msrd
+atomic unit of momentum                                      | atomic-unit-of-momentum                                      |   | phys |   |   |   | msrd
+atomic unit of permittivity                                  | atomic-unit-of-permittivity                                  |   | phys |   |   |   | msrd
+atomic unit of time                                          | atomic-unit-of-time                                          |   | phys |   |   |   | msrd
+atomic unit of velocity                                      | atomic-unit-of-velocity                                      |   | phys |   |   |   | msrd
+Avogadro constant                                            | avogadro-constant                                            |   | phys | fund | def |   |  
+Avogadro constant                                            | L                                                            | DFLT | phys | fund | def |   |  
+Avogadro constant                                            | Na                                                           | DFLT | phys | fund | def |   |  
+Avogadro constant                                            | kg-amu                                                       | DFLT | phys | fund | def |   |  
+Bohr magneton                                                | bohr-magneton                                                |   | phys |   |   |   | msrd
+Bohr magneton in eV/T                                        | bohr-magneton-in-eV-T                                        |   | phys |   |   |   | msrd
+Bohr magneton in Hz/T                                        | bohr-magneton-in-Hz-T                                        |   | phys |   |   |   | msrd
+Bohr magneton in inverse meter per tesla                     | bohr-magneton-in-inverse-meter-per-tesla                     |   | phys |   |   |   | msrd
+Bohr magneton in K/T                                         | bohr-magneton-in-K-T                                         |   | phys |   |   |   | msrd
+Bohr radius                                                  | bohr-radius                                                  |   | phys |   |   |   | msrd
+Boltzmann constant                                           | boltzmann-constant                                           | DFLT | phys | fund | def |   |  
+Boltzmann constant                                           | k                                                            | DFLT | phys | fund | def |   |  
+Boltzmann constant in eV/K                                   | boltzmann-constant-in-eV-K                                   |   | phys |   |   | drvd |  
+Boltzmann constant in Hz/K                                   | boltzmann-constant-in-Hz-K                                   |   | phys |   |   | drvd |  
+Boltzmann constant in inverse meter per kelvin               | boltzmann-constant-in-inverse-meter-per-kelvin               |   | phys |   |   | drvd |  
+characteristic impedance of vacuum                           | characteristic-impedance-of-vacuum                           |   | phys |   |   |   | msrd
+classical electron radius                                    | classical-electron-radius                                    |   | phys |   |   |   | msrd
+Compton wavelength                                           | compton-wavelength                                           |   | phys |   |   |   | msrd
+conductance quantum                                          | conductance-quantum                                          |   | phys |   |   | drvd |  
+conventional value of ampere-90                              | conventional-value-of-ampere_90                              |   | phys |   |   | drvd |  
+conventional value of coulomb-90                             | conventional-value-of-coulomb_90                             |   | phys |   |   | drvd |  
+conventional value of farad-90                               | conventional-value-of-farad_90                               |   | phys |   |   | drvd |  
+conventional value of henry-90                               | conventional-value-of-henry_90                               |   | phys |   |   | drvd |  
+conventional value of Josephson constant                     | conventional-value-of-josephson-constant                     |   | phys |   |   | drvd |  
+conventional value of Josephson constant                     | Kj90                                                         |   | phys |   |   | drvd |  
+conventional value of ohm-90                                 | conventional-value-of-ohm_90                                 |   | phys |   |   | drvd |  
+conventional value of volt-90                                | conventional-value-of-volt_90                                |   | phys |   |   | drvd |  
+conventional value of von Klitzing constant                  | conventional-value-of-von-klitzing-constant                  |   | phys |   |   | drvd |  
+conventional value of von Klitzing constant                  | RK90                                                         |   | phys |   |   | drvd |  
+conventional value of watt-90                                | conventional-value-of-watt_90                                |   | phys |   |   | drvd |  
+Copper x unit                                                | copper-x-unit                                                |   | phys |   |   |   | msrd
+deuteron-electron mag. mom. ratio                            | deuteron-electron-mag-mom-ratio                              |   | phys |   |   |   | msrd
+deuteron-electron mass ratio                                 | deuteron-electron-mass-ratio                                 |   | phys |   |   |   | msrd
+deuteron g factor                                            | deuteron-g-factor                                            |   | phys |   |   |   | msrd
+deuteron mag. mom.                                           | deuteron-mag-mom                                             |   | phys |   |   |   | msrd
+deuteron mag. mom. to Bohr magneton ratio                    | deuteron-mag-mom-to-bohr-magneton-ratio                      |   | phys |   |   |   | msrd
+deuteron mag. mom. to nuclear magneton ratio                 | deuteron-mag-mom-to-nuclear-magneton-ratio                   |   | phys |   |   |   | msrd
+deuteron mass                                                | deuteron-mass                                                |   | phys |   |   |   | msrd
+deuteron mass energy equivalent                              | deuteron-mass-energy-equivalent                              |   | phys |   |   |   | msrd
+deuteron mass energy equivalent in MeV                       | deuteron-mass-energy-equivalent-in-MeV                       |   | phys |   |   |   | msrd
+deuteron mass in u                                           | deuteron-mass-in-u                                           |   | phys |   |   |   | msrd
+deuteron molar mass                                          | deuteron-molar-mass                                          |   | phys |   |   |   | msrd
+deuteron-neutron mag. mom. ratio                             | deuteron-neutron-mag-mom-ratio                               |   | phys |   |   |   | msrd
+deuteron-proton mag. mom. ratio                              | deuteron-proton-mag-mom-ratio                                |   | phys |   |   |   | msrd
+deuteron-proton mass ratio                                   | deuteron-proton-mass-ratio                                   |   | phys |   |   |   | msrd
+deuteron relative atomic mass                                | deuteron-relative-atomic-mass                                |   | phys |   |   |   | msrd
+deuteron rms charge radius                                   | deuteron-rms-charge-radius                                   |   | phys |   |   |   | msrd
+electron charge to mass quotient                             | electron-charge-to-mass-quotient                             |   | phys |   |   |   | msrd
+electron-deuteron mag. mom. ratio                            | electron-deuteron-mag-mom-ratio                              |   | phys |   |   |   | msrd
+electron-deuteron mass ratio                                 | electron-deuteron-mass-ratio                                 |   | phys |   |   |   | msrd
+electron g factor                                            | electron-g-factor                                            |   | phys |   |   |   | msrd
+electron gyromag. ratio                                      | electron-gyromag-ratio                                       |   | phys |   |   |   | msrd
+electron gyromag. ratio in MHz/T                             | electron-gyromag-ratio-in-MHz-T                              |   | phys |   |   |   | msrd
+electron-helion mass ratio                                   | electron-helion-mass-ratio                                   |   | phys |   |   |   | msrd
+electron mag. mom.                                           | electron-mag-mom                                             |   | phys |   |   |   | msrd
+electron mag. mom. anomaly                                   | electron-mag-mom-anomaly                                     |   | phys |   |   |   | msrd
+electron mag. mom. to Bohr magneton ratio                    | electron-mag-mom-to-bohr-magneton-ratio                      |   | phys |   |   |   | msrd
+electron mag. mom. to nuclear magneton ratio                 | electron-mag-mom-to-nuclear-magneton-ratio                   |   | phys |   |   |   | msrd
+electron mass                                                | electron-mass                                                | DFLT | phys |   |   |   | msrd
+electron mass energy equivalent                              | electron-mass-energy-equivalent                              |   | phys |   |   |   | msrd
+electron mass energy equivalent in MeV                       | electron-mass-energy-equivalent-in-MeV                       |   | phys |   |   |   | msrd
+electron mass in u                                           | electron-mass-in-u                                           |   | phys |   |   |   | msrd
+electron molar mass                                          | electron-molar-mass                                          |   | phys |   |   |   | msrd
+electron-muon mag. mom. ratio                                | electron-muon-mag-mom-ratio                                  |   | phys |   |   |   | msrd
+electron-muon mass ratio                                     | electron-muon-mass-ratio                                     |   | phys |   |   |   | msrd
+electron-neutron mag. mom. ratio                             | electron-neutron-mag-mom-ratio                               |   | phys |   |   |   | msrd
+electron-neutron mass ratio                                  | electron-neutron-mass-ratio                                  |   | phys |   |   |   | msrd
+electron-proton mag. mom. ratio                              | electron-proton-mag-mom-ratio                                |   | phys |   |   |   | msrd
+electron-proton mass ratio                                   | electron-proton-mass-ratio                                   |   | phys |   |   |   | msrd
+electron relative atomic mass                                | electron-relative-atomic-mass                                |   | phys |   |   |   | msrd
+electron-tau mass ratio                                      | electron-tau-mass-ratio                                      |   | phys |   |   |   | msrd
+electron to alpha particle mass ratio                        | electron-to-alpha-particle-mass-ratio                        |   | phys |   |   |   | msrd
+electron to shielded helion mag. mom. ratio                  | electron-to-shielded-helion-mag-mom-ratio                    |   | phys |   |   |   | msrd
+electron to shielded proton mag. mom. ratio                  | electron-to-shielded-proton-mag-mom-ratio                    |   | phys |   |   |   | msrd
+electron-triton mass ratio                                   | electron-triton-mass-ratio                                   |   | phys |   |   |   | msrd
+electron volt-atomic mass unit relationship                  | electron-volt-atomic-mass-unit-relationship                  |   | phys |   |   |   | msrd
+electron volt                                                | electron-volt                                                | DFLT | phys |   |   | drvd |  
+electron volt                                                | eV                                                           | DFLT | phys |   |   | drvd |  
+electron volt-hartree relationship                           | electron-volt-hartree-relationship                           |   | phys |   |   |   | msrd
+electron volt-hertz relationship                             | electron-volt-hertz-relationship                             |   | phys |   |   | drvd |  
+electron volt-hertz relationship                             | quantum-ratio                                                | DFLT | phys |   |   | drvd |  
+electron volt-inverse meter relationship                     | electron-volt-inverse-meter-relationship                     |   | phys |   |   | drvd |  
+electron volt-joule relationship                             | electron-volt-joule-relationship                             |   | phys |   |   | drvd |  
+electron volt-kelvin relationship                            | electron-volt-kelvin-relationship                            |   | phys |   |   | drvd |  
+electron volt-kilogram relationship                          | electron-volt-kilogram-relationship                          |   | phys |   |   | drvd |  
+elementary charge                                            | elementary-charge                                            | DFLT | phys | fund | def |   |  
+elementary charge                                            | q                                                            | DFLT | phys | fund | def |   |  
+elementary charge over h-bar                                 | elementary-charge-over-h-bar                                 |   | phys |   |   | drvd |  
+Faraday constant                                             | faraday-constant                                             | DFLT | phys |   |   | drvd |  
+Faraday constant                                             | F                                                            | DFLT | phys |   |   | drvd |  
+Fermi coupling constant                                      | fermi-coupling-constant                                      |   | phys |   |   |   | msrd
+fine-structure constant                                      | fine-structure-constant                                      | DFLT | phys |   |   |   | msrd
+fine-structure constant                                      | α                                                            | DFLT | phys |   |   |   | msrd
+first radiation constant                                     | first-radiation-constant                                     |   | phys |   |   | drvd |  
+first radiation constant for spectral radiance               | first-radiation-constant-for-spectral-radiance               |   | phys |   |   | drvd |  
+hartree-atomic mass unit relationship                        | hartree-atomic-mass-unit-relationship                        |   | phys |   |   |   | msrd
+hartree-electron volt relationship                           | hartree-electron-volt-relationship                           |   | phys |   |   |   | msrd
+Hartree energy                                               | hartree-energy                                               |   | phys |   |   |   | msrd
+Hartree energy in eV                                         | hartree-energy-in-eV                                         |   | phys |   |   |   | msrd
+hartree-hertz relationship                                   | hartree-hertz-relationship                                   |   | phys |   |   |   | msrd
+hartree-inverse meter relationship                           | hartree-inverse-meter-relationship                           |   | phys |   |   |   | msrd
+hartree-joule relationship                                   | hartree-joule-relationship                                   |   | phys |   |   |   | msrd
+hartree-kelvin relationship                                  | hartree-kelvin-relationship                                  |   | phys |   |   |   | msrd
+hartree-kilogram relationship                                | hartree-kilogram-relationship                                |   | phys |   |   |   | msrd
+helion-electron mass ratio                                   | helion-electron-mass-ratio                                   |   | phys |   |   |   | msrd
+helion g factor                                              | helion-g-factor                                              |   | phys |   |   |   | msrd
+helion mag. mom.                                             | helion-mag-mom                                               |   | phys |   |   |   | msrd
+helion mag. mom. to Bohr magneton ratio                      | helion-mag-mom-to-bohr-magneton-ratio                        |   | phys |   |   |   | msrd
+helion mag. mom. to nuclear magneton ratio                   | helion-mag-mom-to-nuclear-magneton-ratio                     |   | phys |   |   |   | msrd
+helion mass energy equivalent                                | helion-mass-energy-equivalent                                |   | phys |   |   |   | msrd
+helion mass energy equivalent in MeV                         | helion-mass-energy-equivalent-in-MeV                         |   | phys |   |   |   | msrd
+helion mass                                                  | helion-mass                                                  |   | phys |   |   |   | msrd
+helion mass in u                                             | helion-mass-in-u                                             |   | phys |   |   |   | msrd
+helion molar mass                                            | helion-molar-mass                                            |   | phys |   |   |   | msrd
+helion-proton mass ratio                                     | helion-proton-mass-ratio                                     |   | phys |   |   |   | msrd
+helion relative atomic mass                                  | helion-relative-atomic-mass                                  |   | phys |   |   |   | msrd
+helion shielding shift                                       | helion-shielding-shift                                       |   | phys |   |   |   | msrd
+hertz-atomic mass unit relationship                          | hertz-atomic-mass-unit-relationship                          |   | phys |   |   |   | msrd
+hertz-electron volt relationship                             | hertz-electron-volt-relationship                             |   | phys |   |   | drvd |  
+hertz-hartree relationship                                   | hertz-hartree-relationship                                   |   | phys |   |   |   | msrd
+hertz-inverse meter relationship                             | hertz-inverse-meter-relationship                             |   | phys |   |   | drvd |  
+hertz-joule relationship                                     | hertz-joule-relationship                                     |   | phys |   |   | drvd |  
+hertz-kelvin relationship                                    | hertz-kelvin-relationship                                    |   | phys |   |   | drvd |  
+hertz-kilogram relationship                                  | hertz-kilogram-relationship                                  |   | phys |   |   | drvd |  
+hyperfine transition frequency of Cs-133                     | hyperfine-transition-frequency-of-Cs_133                     | DFLT | phys | fund | def |   |  
+inverse fine-structure constant                              | inverse-fine-structure-constant                              |   | phys |   |   |   | msrd
+inverse meter-atomic mass unit relationship                  | inverse-meter-atomic-mass-unit-relationship                  |   | phys |   |   |   | msrd
+inverse meter-electron volt relationship                     | inverse-meter-electron-volt-relationship                     |   | phys |   |   | drvd |  
+inverse meter-hartree relationship                           | inverse-meter-hartree-relationship                           |   | phys |   |   |   | msrd
+inverse meter-hertz relationship                             | inverse-meter-hertz-relationship                             |   | phys |   |   | drvd |  
+inverse meter-joule relationship                             | inverse-meter-joule-relationship                             |   | phys |   |   | drvd |  
+inverse meter-kelvin relationship                            | inverse-meter-kelvin-relationship                            |   | phys |   |   | drvd |  
+inverse meter-kilogram relationship                          | inverse-meter-kilogram-relationship                          |   | phys |   |   | drvd |  
+inverse of conductance quantum                               | inverse-of-conductance-quantum                               |   | phys |   |   | drvd |  
+Josephson constant                                           | josephson-constant                                           |   | phys |   |   | drvd |  
+Josephson constant                                           | Kj                                                           |   | phys |   |   | drvd |  
+joule-atomic mass unit relationship                          | joule-atomic-mass-unit-relationship                          |   | phys |   |   |   | msrd
+joule-electron volt relationship                             | joule-electron-volt-relationship                             |   | phys |   |   | drvd |  
+joule-hartree relationship                                   | joule-hartree-relationship                                   |   | phys |   |   |   | msrd
+joule-hertz relationship                                     | joule-hertz-relationship                                     |   | phys |   |   | drvd |  
+joule-inverse meter relationship                             | joule-inverse-meter-relationship                             |   | phys |   |   | drvd |  
+joule-kelvin relationship                                    | joule-kelvin-relationship                                    |   | phys |   |   | drvd |  
+joule-kilogram relationship                                  | joule-kilogram-relationship                                  |   | phys |   |   | drvd |  
+kelvin-atomic mass unit relationship                         | kelvin-atomic-mass-unit-relationship                         |   | phys |   |   |   | msrd
+kelvin-electron volt relationship                            | kelvin-electron-volt-relationship                            |   | phys |   |   | drvd |  
+kelvin-hartree relationship                                  | kelvin-hartree-relationship                                  |   | phys |   |   |   | msrd
+kelvin-hertz relationship                                    | kelvin-hertz-relationship                                    |   | phys |   |   | drvd |  
+kelvin-inverse meter relationship                            | kelvin-inverse-meter-relationship                            |   | phys |   |   | drvd |  
+kelvin-joule relationship                                    | kelvin-joule-relationship                                    |   | phys |   |   | drvd |  
+kelvin-kilogram relationship                                 | kelvin-kilogram-relationship                                 |   | phys |   |   | drvd |  
+kilogram-atomic mass unit relationship                       | kilogram-atomic-mass-unit-relationship                       |   | phys |   |   |   | msrd
+kilogram-electron volt relationship                          | kilogram-electron-volt-relationship                          |   | phys |   |   | drvd |  
+kilogram-hartree relationship                                | kilogram-hartree-relationship                                |   | phys |   |   |   | msrd
+kilogram-hertz relationship                                  | kilogram-hertz-relationship                                  |   | phys |   |   | drvd |  
+kilogram-inverse meter relationship                          | kilogram-inverse-meter-relationship                          |   | phys |   |   | drvd |  
+kilogram-joule relationship                                  | coulomb-constant                                             | DFLT | phys |   |   | drvd |  
+kilogram-joule relationship                                  | K0                                                           | DFLT | phys |   |   | drvd |  
+kilogram-joule relationship                                  | kilogram-joule-relationship                                  |   | phys |   |   | drvd |  
+kilogram-kelvin relationship                                 | kilogram-kelvin-relationship                                 |   | phys |   |   | drvd |  
+lattice parameter of silicon                                 | lattice-parameter-of-silicon                                 |   | phys |   |   |   | msrd
+lattice spacing of ideal Si (220)                            | lattice-spacing-of-ideal-Si_220                              |   | phys |   |   |   | msrd
+Loschmidt constant (273.15 K, 100 kPa)                       | loschmidt-constant-stp                                       |   | phys |   |   | drvd |  
+Loschmidt constant (273.15 K, 101.325 kPa)                   | loschmidt-constant-ntp                                       |   | phys |   |   | drvd |  
+luminous efficacy                                            | luminous-efficacy                                            | DFLT | phys | fund | def |   |  
+mag. flux quantum                                            | mag-flux-quantum                                             |   | phys |   |   | drvd |  
+molar gas constant                                           | gas-constant                                                 | DFLT | phys |   |   | drvd |  
+molar gas constant                                           | molar-gas-constant                                           |   | phys |   |   | drvd |  
+molar mass constant                                          | molar-mass-constant                                          |   | phys |   |   |   | msrd
+molar mass of carbon-12                                      | molar-mass-of-carbon_12                                      |   | phys |   |   |   | msrd
+molar Planck constant                                        | molar-planck-constant                                        |   | phys |   |   | drvd |  
+molar volume of ideal gas (273.15 K, 100 kPa)                | molar-volume-of-ideal-gas-stp                                |   | phys |   |   | drvd |  
+molar volume of ideal gas (273.15 K, 101.325 kPa)            | molar-volume-of-ideal-gas-ntp                                |   | phys |   |   | drvd |  
+molar volume of silicon                                      | molar-volume-of-silicon                                      |   | phys |   |   |   | msrd
+Molybdenum x unit                                            | molybdenum-x-unit                                            |   | phys |   |   |   | msrd
+muon Compton wavelength                                      | muon-compton-wavelength                                      |   | phys |   |   |   | msrd
+muon-electron mass ratio                                     | muon-electron-mass-ratio                                     |   | phys |   |   |   | msrd
+muon g factor                                                | muon-g-factor                                                |   | phys |   |   |   | msrd
+muon mag. mom. anomaly                                       | muon-mag-mom-anomaly                                         |   | phys |   |   |   | msrd
+muon mag. mom.                                               | muon-mag-mom                                                 |   | phys |   |   |   | msrd
+muon mag. mom. to Bohr magneton ratio                        | muon-mag-mom-to-bohr-magneton-ratio                          |   | phys |   |   |   | msrd
+muon mag. mom. to nuclear magneton ratio                     | muon-mag-mom-to-nuclear-magneton-ratio                       |   | phys |   |   |   | msrd
+muon mass energy equivalent in MeV                           | muon-mass-energy-equivalent-in-MeV                           |   | phys |   |   |   | msrd
+muon mass energy equivalent                                  | muon-mass-energy-equivalent                                  |   | phys |   |   |   | msrd
+muon mass in u                                               | muon-mass-in-u                                               |   | phys |   |   |   | msrd
+muon mass                                                    | muon-mass                                                    |   | phys |   |   |   | msrd
+muon molar mass                                              | muon-molar-mass                                              |   | phys |   |   |   | msrd
+muon-neutron mass ratio                                      | muon-neutron-mass-ratio                                      |   | phys |   |   |   | msrd
+muon-proton mag. mom. ratio                                  | muon-proton-mag-mom-ratio                                    |   | phys |   |   |   | msrd
+muon-proton mass ratio                                       | muon-proton-mass-ratio                                       |   | phys |   |   |   | msrd
+muon-tau mass ratio                                          | muon-tau-mass-ratio                                          |   | phys |   |   |   | msrd
+natural unit of action in eV s                               | natural-unit-of-action-in-eV-s                               |   | phys |   |   | drvd |  
+natural unit of action                                       | natural-unit-of-action                                       |   | phys |   |   | drvd |  
+natural unit of energy in MeV                                | natural-unit-of-energy-in-MeV                                |   | phys |   |   |   | msrd
+natural unit of energy                                       | natural-unit-of-energy                                       |   | phys |   |   |   | msrd
+natural unit of length                                       | natural-unit-of-length                                       |   | phys |   |   |   | msrd
+natural unit of mass                                         | natural-unit-of-mass                                         |   | phys |   |   |   | msrd
+natural unit of momentum in MeV/c                            | natural-unit-of-momentum-in-MeV-c                            |   | phys |   |   |   | msrd
+natural unit of momentum                                     | natural-unit-of-momentum                                     |   | phys |   |   |   | msrd
+natural unit of time                                         | natural-unit-of-time                                         |   | phys |   |   |   | msrd
+natural unit of velocity                                     | natural-unit-of-velocity                                     |   | phys |   |   | drvd |  
+neutron Compton wavelength                                   | neutron-compton-wavelength                                   |   | phys |   |   |   | msrd
+neutron-electron mag. mom. ratio                             | neutron-electron-mag-mom-ratio                               |   | phys |   |   |   | msrd
+neutron-electron mass ratio                                  | neutron-electron-mass-ratio                                  |   | phys |   |   |   | msrd
+neutron g factor                                             | neutron-g-factor                                             |   | phys |   |   |   | msrd
+neutron gyromag. ratio in MHz/T                              | neutron-gyromag-ratio-in-MHz-T                               |   | phys |   |   |   | msrd
+neutron gyromag. ratio                                       | neutron-gyromag-ratio                                        |   | phys |   |   |   | msrd
+neutron mag. mom.                                            | neutron-mag-mom                                              |   | phys |   |   |   | msrd
+neutron mag. mom. to Bohr magneton ratio                     | neutron-mag-mom-to-bohr-magneton-ratio                       |   | phys |   |   |   | msrd
+neutron mag. mom. to nuclear magneton ratio                  | neutron-mag-mom-to-nuclear-magneton-ratio                    |   | phys |   |   |   | msrd
+neutron mass                                                 | neutron-mass                                                 | DFLT | phys |   |   |   | msrd
+neutron mass energy equivalent in MeV                        | neutron-mass-energy-equivalent-in-MeV                        |   | phys |   |   |   | msrd
+neutron mass energy equivalent                               | neutron-mass-energy-equivalent                               |   | phys |   |   |   | msrd
+neutron mass in u                                            | neutron-mass-in-u                                            |   | phys |   |   |   | msrd
+neutron molar mass                                           | neutron-molar-mass                                           |   | phys |   |   |   | msrd
+neutron-muon mass ratio                                      | neutron-muon-mass-ratio                                      |   | phys |   |   |   | msrd
+neutron-proton mag. mom. ratio                               | neutron-proton-mag-mom-ratio                                 |   | phys |   |   |   | msrd
+neutron-proton mass difference energy equivalent in MeV      | neutron-proton-mass-difference-energy-equivalent-in-MeV      |   | phys |   |   |   | msrd
+neutron-proton mass difference energy equivalent             | neutron-proton-mass-difference-energy-equivalent             |   | phys |   |   |   | msrd
+neutron-proton mass difference in u                          | neutron-proton-mass-difference-in-u                          |   | phys |   |   |   | msrd
+neutron-proton mass difference                               | neutron-proton-mass-difference                               |   | phys |   |   |   | msrd
+neutron-proton mass ratio                                    | neutron-proton-mass-ratio                                    |   | phys |   |   |   | msrd
+neutron relative atomic mass                                 | neutron-relative-atomic-mass                                 |   | phys |   |   |   | msrd
+neutron-tau mass ratio                                       | neutron-tau-mass-ratio                                       |   | phys |   |   |   | msrd
+neutron to shielded proton mag. mom. ratio                   | neutron-to-shielded-proton-mag-mom-ratio                     |   | phys |   |   |   | msrd
+Newtonian constant of gravitation                            | newtonian-constant-of-gravitation                            |   | phys |   |   |   | msrd
+Newtonian constant of gravitation                            | gravitation-constant                                         | DFLT | phys |   |   |   | msrd
+Newtonian constant of gravitation                            | G                                                            | DFLT | phys |   |   |   | msrd
+Newtonian constant of gravitation over h-bar c               | newtonian-constant-of-gravitation-over-h-bar-c               |   | phys |   |   |   | msrd
+nuclear magneton in eV/T                                     | nuclear-magneton-in-eV-T                                     |   | phys |   |   |   | msrd
+nuclear magneton in inverse meter per tesla                  | nuclear-magneton-in-inverse-meter-per-tesla                  |   | phys |   |   |   | msrd
+nuclear magneton in K/T                                      | nuclear-magneton-in-K-T                                      |   | phys |   |   |   | msrd
+nuclear magneton in MHz/T                                    | nuclear-magneton-in-MHz-T                                    |   | phys |   |   |   | msrd
+nuclear magneton                                             | nuclear-magneton                                             |   | phys |   |   |   | msrd
+Planck constant                                              | planck-constant                                              |   | phys | fund | def |   |  
+Planck constant                                              | plancks-h                                                    | DFLT | phys | fund | def |   |  
+Planck constant                                              | ℎ                                                            | DFLT | phys | fund | def |   |  
+Planck constant in eV/Hz                                     | planck-constant-in-eV-Hz                                     |   | phys |   |   | drvd |  
+Planck length                                                | planck-length                                                | DFLT | phys |   |   |   | msrd
+Planck length                                                | lp                                                           | DFLT | phys |   |   |   | msrd
+Planck mass energy equivalent in GeV                         | planck-mass-energy-equivalent-in-GeV                         |   | phys |   |   |   | msrd
+Planck mass                                                  | planck-mass                                                  | DFLT | phys |   |   |   | msrd
+Planck mass                                                  | mp                                                           | DFLT | phys |   |   |   | msrd
+Planck temperature                                           | planck-temperature                                           | DFLT | phys |   |   |   | msrd
+Planck temperature                                           | Tp                                                           | DFLT | phys |   |   |   | msrd
+Planck time                                                  | planck-time                                                  | DFLT | phys |   |   |   | msrd
+Planck time                                                  | tp                                                           | DFLT | phys |   |   |   | msrd
+proton charge to mass quotient                               | proton-charge-to-mass-quotient                               |   | phys |   |   |   | msrd
+proton Compton wavelength                                    | proton-compton-wavelength                                    |   | phys |   |   |   | msrd
+proton-electron mass ratio                                   | proton-electron-mass-ratio                                   |   | phys |   |   |   | msrd
+proton g factor                                              | proton-g-factor                                              |   | phys |   |   |   | msrd
+proton gyromag. ratio in MHz/T                               | proton-gyromag-ratio-in-MHz-T                                |   | phys |   |   |   | msrd
+proton gyromag. ratio                                        | proton-gyromag-ratio                                         |   | phys |   |   |   | msrd
+proton mag. mom.                                             | proton-mag-mom                                               |   | phys |   |   |   | msrd
+proton mag. mom. to Bohr magneton ratio                      | proton-mag-mom-to-bohr-magneton-ratio                        |   | phys |   |   |   | msrd
+proton mag. mom. to nuclear magneton ratio                   | proton-mag-mom-to-nuclear-magneton-ratio                     |   | phys |   |   |   | msrd
+proton mag. shielding correction                             | proton-mag-shielding-correction                              |   | phys |   |   |   | msrd
+proton mass energy equivalent in MeV                         | proton-mass-energy-equivalent-in-MeV                         |   | phys |   |   |   | msrd
+proton mass energy equivalent                                | proton-mass-energy-equivalent                                |   | phys |   |   |   | msrd
+proton mass                                                  | proton-mass                                                  | DFLT | phys |   |   |   | msrd
+proton mass in u                                             | proton-mass-in-u                                             |   | phys |   |   |   | msrd
+proton molar mass                                            | proton-molar-mass                                            |   | phys |   |   |   | msrd
+proton-muon mass ratio                                       | proton-muon-mass-ratio                                       |   | phys |   |   |   | msrd
+proton-neutron mag. mom. ratio                               | proton-neutron-mag-mom-ratio                                 |   | phys |   |   |   | msrd
+proton-neutron mass ratio                                    | proton-neutron-mass-ratio                                    |   | phys |   |   |   | msrd
+proton relative atomic mass                                  | proton-relative-atomic-mass                                  |   | phys |   |   |   | msrd
+proton rms charge radius                                     | proton-rms-charge-radius                                     |   | phys |   |   |   | msrd
+proton-tau mass ratio                                        | proton-tau-mass-ratio                                        |   | phys |   |   |   | msrd
+quantum of circulation                                       | quantum-of-circulation                                       |   | phys |   |   |   | msrd
+quantum of circulation times 2                               | quantum-of-circulation-times_2                               |   | phys |   |   |   | msrd
+reduced Compton wavelength                                   | reduced-compton-wavelength                                   |   | phys |   |   |   | msrd
+reduced muon Compton wavelength                              | reduced-muon-compton-wavelength                              |   | phys |   |   |   | msrd
+reduced neutron Compton wavelength                           | reduced-neutron-compton-wavelength                           |   | phys |   |   |   | msrd
+reduced Planck constant                                      | reduced-planck-constant                                      |   | phys |   |   | drvd |  
+reduced Planck constant                                      | plancks-reduced-h                                            | DFLT | phys |   |   | drvd |  
+reduced Planck constant                                      | ℏ                                                            | DFLT | phys |   |   | drvd |  
+reduced Planck constant in eV s                              | reduced-planck-constant-in-eV-s                              |   | phys |   |   | drvd |  
+reduced Planck constant times c in MeV fm                    | reduced-planck-constant-times-c-in-MeV-fm                    |   | phys |   |   |   | msrd
+reduced proton Compton wavelength                            | reduced-proton-compton-wavelength                            |   | phys |   |   |   | msrd
+reduced tau Compton wavelength                               | reduced-tau-compton-wavelength                               |   | phys |   |   |   | msrd
+Rydberg constant                                             | rydberg-constant                                             |   | phys |   |   |   | msrd
+Rydberg constant times c in Hz                               | rydberg-constant-times-c-in-Hz                               |   | phys |   |   |   | msrd
+Rydberg constant times hc in eV                              | rydberg-constant-times-hc-in-eV                              |   | phys |   |   |   | msrd
+Rydberg constant times hc in J                               | rydberg-constant-times-hc-in-J                               |   | phys |   |   |   | msrd
+Sackur-Tetrode constant (1 K, 100 kPa)                       | sackur-tetrode-constant_1-K_100-kPa                          |   | phys |   |   |   | msrd
+Sackur-Tetrode constant (1 K, 101.325 kPa)                   | sackur-tetrode-constant_1-K_101325-kPa                       |   | phys |   |   |   | msrd
+second radiation constant                                    | second-radiation-constant                                    |   | phys |   |   | drvd |  
+shielded helion gyromag. ratio in MHz/T                      | shielded-helion-gyromag-ratio-in-MHz-T                       |   | phys |   |   |   | msrd
+shielded helion gyromag. ratio                               | shielded-helion-gyromag-ratio                                |   | phys |   |   |   | msrd
+shielded helion mag. mom.                                    | shielded-helion-mag-mom                                      |   | phys |   |   |   | msrd
+shielded helion mag. mom. to Bohr magneton ratio             | shielded-helion-mag-mom-to-bohr-magneton-ratio               |   | phys |   |   |   | msrd
+shielded helion mag. mom. to nuclear magneton ratio          | shielded-helion-mag-mom-to-nuclear-magneton-ratio            |   | phys |   |   |   | msrd
+shielded helion to proton mag. mom. ratio                    | shielded-helion-to-proton-mag-mom-ratio                      |   | phys |   |   |   | msrd
+shielded helion to shielded proton mag. mom. ratio           | shielded-helion-to-shielded-proton-mag-mom-ratio             |   | phys |   |   |   | msrd
+shielded proton gyromag. ratio in MHz/T                      | shielded-proton-gyromag-ratio-in-MHz-T                       |   | phys |   |   |   | msrd
+shielded proton gyromag. ratio                               | shielded-proton-gyromag-ratio                                |   | phys |   |   |   | msrd
+shielded proton mag. mom.                                    | shielded-proton-mag-mom                                      |   | phys |   |   |   | msrd
+shielded proton mag. mom. to Bohr magneton ratio             | shielded-proton-mag-mom-to-bohr-magneton-ratio               |   | phys |   |   |   | msrd
+shielded proton mag. mom. to nuclear magneton ratio          | shielded-proton-mag-mom-to-nuclear-magneton-ratio            |   | phys |   |   |   | msrd
+shielding difference of d and p in HD                        | shielding-difference-of-d-and-p-in-HD                        |   | phys |   |   |   | msrd
+shielding difference of t and p in HT                        | shielding-difference-of-t-and-p-in-HT                        |   | phys |   |   |   | msrd
+speed of light in vacuum                                     | speed-of-light-vacuum                                        | DFLT | phys | fund | def |   |  
+speed of light in vacuum                                     | c                                                            | DFLT | phys | fund | def |   |  
+standard acceleration of gravity                             | standard-acceleration-gravity                                | DFLT | phys |   | def |   |  
+standard acceleration of gravity                             | g                                                            | DFLT | phys |   | def |   |  
+standard atmosphere                                          | standard-atmosphere                                          |   | phys |   |   |   | msrd
+standard-state pressure                                      | standard-state-pressure                                      |   | phys |   |   |   | msrd
+Stefan-Boltzmann constant                                    | stefan-boltzmann-constant                                    |   | phys |   |   | drvd |  
+tau Compton wavelength                                       | tau-compton-wavelength                                       |   | phys |   |   |   | msrd
+tau-electron mass ratio                                      | tau-electron-mass-ratio                                      |   | phys |   |   |   | msrd
+tau energy equivalent                                        | tau-energy-equivalent                                        |   | phys |   |   |   | msrd
+tau mass energy equivalent                                   | tau-mass-energy-equivalent                                   |   | phys |   |   |   | msrd
+tau mass                                                     | tau-mass                                                     |   | phys |   |   |   | msrd
+tau mass in u                                                | tau-mass-in-u                                                |   | phys |   |   |   | msrd
+tau molar mass                                               | tau-molar-mass                                               |   | phys |   |   |   | msrd
+tau-muon mass ratio                                          | tau-muon-mass-ratio                                          |   | phys |   |   |   | msrd
+tau-neutron mass ratio                                       | tau-neutron-mass-ratio                                       |   | phys |   |   |   | msrd
+tau-proton mass ratio                                        | tau-proton-mass-ratio                                        |   | phys |   |   |   | msrd
+Thomson cross section                                        | thomson-cross-section                                        |   | phys |   |   |   | msrd
+triton-electron mass ratio                                   | triton-electron-mass-ratio                                   |   | phys |   |   |   | msrd
+triton g factor                                              | triton-g-factor                                              |   | phys |   |   |   | msrd
+triton mag. mom. to Bohr magneton ratio                      | triton-mag-mom-to-bohr-magneton-ratio                        |   | phys |   |   |   | msrd
+triton mag. mom. to nuclear magneton ratio                   | triton-mag-mom-to-nuclear-magneton-ratio                     |   | phys |   |   |   | msrd
+triton mag. mom.                                             | triton-mag-mom                                               |   | phys |   |   |   | msrd
+triton mass energy equivalent in MeV                         | triton-mass-energy-equivalent-in-MeV                         |   | phys |   |   |   | msrd
+triton mass energy equivalent                                | triton-mass-energy-equivalent                                |   | phys |   |   |   | msrd
+triton mass in u                                             | triton-mass-in-u                                             |   | phys |   |   |   | msrd
+triton mass                                                  | triton-mass                                                  |   | phys |   |   |   | msrd
+triton molar mass                                            | triton-molar-mass                                            |   | phys |   |   |   | msrd
+triton-proton mass ratio                                     | triton-proton-mass-ratio                                     |   | phys |   |   |   | msrd
+triton relative atomic mass                                  | triton-relative-atomic-mass                                  |   | phys |   |   |   | msrd
+triton to proton mag. mom. ratio                             | triton-to-proton-mag-mom-ratio                               |   | phys |   |   |   | msrd
+unified atomic mass unit                                     | unified-atomic-mass-unit                                     |   | phys |   |   |   | msrd
+vacuum electric permittivity                                 | vacuum-electric-permittivity                                 |   | phys |   |   |   | msrd
+vacuum electric permittivity                                 | vacuum-permittivity                                          | DFLT | phys |   |   |   | msrd
+vacuum electric permittivity                                 | ε0                                                           | DFLT | phys |   |   |   | msrd
+vacuum mag. permeability                                     | vacuum-mag-permeability                                      |   | phys |   |   |   | msrd
+vacuum mag. permeability                                     | vacuum-permeability                                          | DFLT | phys |   |   |   | msrd
+vacuum mag. permeability                                     | magnetic-permeability                                        | DFLT | phys |   |   |   | msrd
+vacuum mag. permeability                                     | μ0                                                           | DFLT | phys |   |   |   | msrd
+von Klitzing constant                                        | von-klitzing-constant                                        |   | phys |   |   | drvd |  
+von Klitzing constant                                        | RK                                                           |   | phys |   |   | drvd |  
+weak mixing angle                                            | weak-mixing-angle                                            |   | phys |   |   |   | msrd
+Wien frequency displacement law constant                     | wien-frequency-displacement-law-constant                     |   | phys |   | def |   |  
+Wien wavelength displacement law constant                    | wien-wavelength-displacement-law-constant                    |   | phys |   | def |   |  
+W to Z mass ratio                                            | w-to-z-mass-ratio                                            |   | phys |   |   |   | msrd
+=end table
 
 =head1 Issues and suggestions
 
@@ -2714,10 +3210,9 @@ Kevin Pye <Kevin.Pye@gmail.com>
 
 Copyright 2016 JJ Merelo
 
-Copyright 2019 Kevin Pye
+Copyright 2021 Kevin Pye
 
 This library is free software; you can redistribute it and/or modify
 it under the GPL 3.0.
-
 
 =end pod
