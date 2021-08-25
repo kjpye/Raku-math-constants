@@ -43,7 +43,7 @@ constant \elementary-charge is export(:DEFAULT :physics :fundamental :defined) =
   value       => 1.602176634e-19, 
   uncertainty => 0, 
   units       => 'C',
-  symbol      -> 'q'
+  symbol      => 'q'
 );
 constant \q  is export(:DEFAULT :physics :fundamental :defined) := elementary-charge;
 
@@ -126,7 +126,7 @@ constant \standard-state-pressure is export(:physics :measured) = Constant.new(
 
 constant \reduced-planck-constant is export(:physics :derived) = Constant.new(
   name        => 'reduced Planck constant',
-  value       => ℎ / (2 * π),
+  value       => ℎ ÷ (2 × π),
   uncertainty => 0,
   units       => 'J·s',
   symbol      => 'ℏ'
@@ -166,28 +166,28 @@ constant \boltzmann-constant-in-eV-K is export(:physics :derived) = Constant.new
 
 constant \boltzmann-constant-in-Hz-K is export(:physics :derived) = Constant.new(
   name        => 'Boltzmann constant in Hz/K',
-  value       => boltzmann-constant / ℎ,
+  value       => boltzmann-constant ÷ ℎ,
   uncertainty => 0,
   units       => 'Hz·K⁻¹'
 );
 
 constant \boltzmann-constant-in-inverse-meter-per-kelvin is export(:physics :derived) = Constant.new(
   name        => 'Boltzmann constant in inverse meter per kelvin',
-  value       => boltzmann-constant / (ℎ * c),
+  value       => boltzmann-constant ÷ (ℎ × c),
   uncertainty => 0,
   units       => 'm⁻¹·K⁻¹'
 );
 
 constant \conductance-quantum is export(:physics :derived) = Constant.new(
   name        => 'conductance quantum',
-  value       => 2 * q² / ℎ,
+  value       => 2 × q² ÷ ℎ,
   uncertainty => 0,
   units       => 'S'
 );
 
 constant \josephson-constant is export(:physics :derived) = Constant.new(
   name        => 'Josephson constant',
-  value       => 2 * q / ℎ,
+  value       => 2 × q ÷ ℎ,
   uncertainty => 0,
   units       => 'Hz·V⁻¹',
   symbol      => 'Kj'
@@ -205,7 +205,7 @@ constant \Kj90 is export(:physics :derived) := conventional-value-of-josephson-c
 
 constant \von-klitzing-constant is export(:physics :derived) = Constant.new(
   name        => 'von Klitzing constant',
-  value       => ℎ / q²,
+  value       => ℎ ÷ q²,
   uncertainty => 0,
   units       => 'Ω',
   symbol      => 'RK'
@@ -223,56 +223,56 @@ constant \RK90 is export(:physics :derived) := conventional-value-of-von-klitzin
 
 constant \conventional-value-of-ampere_90 is export(:physics :derived) = Constant.new(
   name        => 'conventional value of ampere-90',
-  value       => (Kj90/Kj) * (RK90/RK),
+  value       => (Kj90÷Kj) × (RK90÷RK),
   uncertainty => 0,
   units       => 'A'
 );
 
 constant \conventional-value-of-coulomb_90 is export(:physics :derived) = Constant.new(
   name        => 'conventional value of coulomb-90',
-  value       => (Kj90/Kj) * (RK90/RK),
+  value       => (Kj90÷Kj) × (RK90÷RK),
   uncertainty => 0,
   units       => 'C'
 );
 
 constant \conventional-value-of-farad_90 is export(:physics :derived) = Constant.new(
   name        => 'conventional value of farad-90',
-  value       => RK90 / RK,
+  value       => RK90 ÷ RK,
   uncertainty => 0,
   units       => 'F'
 );
 
 constant \conventional-value-of-henry_90 is export(:physics :derived) = Constant.new(
   name        => 'conventional value of henry-90',
-  value       => RK / RK90,
+  value       => RK ÷ RK90,
   uncertainty => 0,
   units       => 'H'
 );
 
 constant \conventional-value-of-ohm_90 is export(:physics :derived) = Constant.new(
   name        => 'conventional value of ohm-90',
-  value       => RK / RK90,
+  value       => RK ÷ RK90,
   uncertainty => 0,
   units       => 'Ω'
 );
 
 constant \conventional-value-of-volt_90 is export(:physics :derived) = Constant.new(
   name        => 'conventional value of volt-90',
-  value       => Kj90 / Kj,
+  value       => Kj90 ÷ Kj,
   uncertainty => 0,
   units       => 'V'
 );
 
 constant \conventional-value-of-watt_90 is export(:physics :derived) = Constant.new(
   name        => 'conventional value of watt-90',
-  value       => (Kj90²/Kj²) * (RK90/RK),
+  value       => (Kj90²÷Kj²) × (RK90÷RK),
   uncertainty => 0,
   units       => 'W'
 );
 
 constant \electron-volt-hertz-relationship is export(:physics :derived) = Constant.new(
   name        => 'electron volt-hertz relationship',
-  value       => eV / ℎ,
+  value       => eV ÷ ℎ,
   uncertainty => 0,
   units       => 'Hz'
 );
@@ -280,7 +280,7 @@ constant \quantum-ratio is export(:DEFAULT :physics :derived) := electron-volt-h
 
 constant \electron-volt-inverse-meter-relationship is export(:physics :derived) = Constant.new(
   name        => 'electron volt-inverse meter relationship',
-  value       => eV / (ℎ*c),
+  value       => eV ÷ (ℎ×c),
   uncertainty => 0,
   units       => 'm⁻¹'
 );
@@ -294,28 +294,28 @@ constant \electron-volt-joule-relationship is export(:physics :derived) = Consta
 
 constant \electron-volt-kelvin-relationship is export(:physics :derived) = Constant.new(
   name        => 'electron volt-kelvin relationship',
-  value       => eV / boltzmann-constant,
+  value       => eV ÷ boltzmann-constant,
   uncertainty => 0,
   units       => 'K'
 );
 
 constant \electron-volt-kilogram-relationship is export(:physics :derived) = Constant.new(
   name        => 'electron volt-kilogram relationship',
-  value       => eV / c²,
+  value       => eV ÷ c²,
   uncertainty => 0,
   units       => 'kg'
 );
 
 constant \elementary-charge-over-h-bar is export(:physics :derived) = Constant.new(
   name        => 'elementary charge over h-bar',
-  value       => q / ℏ,
+  value       => q ÷ ℏ,
   uncertainty => 0,
   units       => 'A·J⁻¹'
 );
 
 constant \faraday-constant is export(:DEFAULT :physics :derived) = Constant.new(
   name        => 'Faraday constant',
-  value       => q * Na,
+  value       => q × Na,
   uncertainty => 0,
   units       => 'C·mol⁻¹',
   symbol      => 'F'
@@ -324,21 +324,21 @@ constant \F is export(:DEFAULT :physics :derived) := faraday-constant;
 
 constant \first-radiation-constant is export(:physics :derived) = Constant.new(
   name        => 'first radiation constant',
-  value       => 2 * π * ℎ * c²,
+  value       => 2 × π × ℎ × c²,
   uncertainty => 0,
   units       => 'W·m²'
 );
 
 constant \first-radiation-constant-for-spectral-radiance is export(:physics :derived) = Constant.new(
   name        => 'first radiation constant for spectral radiance',
-  value       => 2 * ℎ * c²,
+  value       => 2 × ℎ × c²,
   uncertainty => 0,
   units       => 'W·m²·sr⁻¹'
 );
 
 constant \hertz-electron-volt-relationship is export(:physics :derived) = Constant.new(
   name        => 'hertz-electron volt relationship',
-  value       => ℎ / eV,
+  value       => ℎ ÷ eV,
   uncertainty => 0,
   units       => 'eV'
 );
@@ -366,15 +366,15 @@ constant \hertz-kelvin-relationship is export(:physics :derived) = Constant.new(
 
 constant \hertz-kilogram-relationship is export(:physics :derived) = Constant.new(
   name        => 'hertz-kilogram relationship',
-  value       => ℎ / c²,
-  #value       => 1 / c * 1e9,
+  value       => ℎ ÷ c²,
+  #value       => 1 ÷ c × 1e9,
   uncertainty => 0,
   units       => 'kg'
 );
 
 constant \inverse-meter-electron-volt-relationship is export(:physics :derived) = Constant.new(
   name        => 'inverse meter-electron volt relationship',
-  value       => ℎ * c / eV,
+  value       => ℎ × c ÷ eV,
   uncertainty => 0,
   units       => 'eV'
 );
@@ -388,84 +388,84 @@ constant \inverse-meter-hertz-relationship is export(:physics :derived) = Consta
 
 constant \inverse-meter-joule-relationship is export(:physics :derived) = Constant.new(
   name        => 'inverse meter-joule relationship',
-  value       => ℎ * c,
+  value       => ℎ × c,
   uncertainty => 0,
   units       => 'J'
 );
 
 constant \inverse-meter-kelvin-relationship is export(:physics :derived) = Constant.new(
   name        => 'inverse meter-kelvin relationship',
-  value       => ℎ × c / boltzmann-constant,
+  value       => ℎ × c ÷ boltzmann-constant,
   uncertainty => 0,
   units       => 'K'
 );
 
 constant \inverse-meter-kilogram-relationship is export(:physics :derived) = Constant.new(
   name        => 'inverse meter-kilogram relationship',
-  value       => ℎ/c,
+  value       => ℎ÷c,
   uncertainty => 0,
   units       => 'kg'
 );
 
 constant \inverse-of-conductance-quantum is export(:physics :derived) = Constant.new(
   name        => 'inverse of conductance quantum',
-  value       => ℎ / (2 × q²),
+  value       => ℎ ÷ (2 × q²),
   uncertainty => 0,
   units       => 'Ω'
 );
 
 constant \joule-electron-volt-relationship is export(:physics :derived) = Constant.new(
   name        => 'joule-electron volt relationship',
-  value       => 1 / q,
+  value       => 1 ÷ q,
   uncertainty => 0,
   units       => 'eV'
 );
 
 constant \joule-hertz-relationship is export(:physics :derived) = Constant.new(
   name        => 'joule-hertz relationship',
-  value       => 1 / ℎ,
+  value       => 1 ÷ ℎ,
   uncertainty => 0,
   units       => 'Hz'
 );
 
 constant \joule-inverse-meter-relationship is export(:physics :derived) = Constant.new(
   name        => 'joule-inverse meter relationship',
-  value       => 1 / (ℎ × c),
+  value       => 1 ÷ (ℎ × c),
   uncertainty => 0,
   units       => 'm⁻¹'
 );
 
 constant \joule-kelvin-relationship is export(:physics :derived) = Constant.new(
   name        => 'joule-kelvin relationship',
-  value       => 1 / boltzmann-constant,
+  value       => 1 ÷ boltzmann-constant,
   uncertainty => 0,
   units       => 'K'
 );
 
 constant \joule-kilogram-relationship is export(:physics :derived) = Constant.new(
   name        => 'joule-kilogram relationship',
-  value       => (1 / c²) * 1e17,
+  value       => 1 ÷ c²,
   uncertainty => 0,
   units       => 'kg'
 );
 
 constant \kelvin-electron-volt-relationship is export(:physics :derived) = Constant.new(
   name        => 'kelvin-electron volt relationship',
-  value       => boltzmann-constant / eV,
+  value       => boltzmann-constant ÷ eV,
   uncertainty => 0,
   units       => 'eV'
 );
 
 constant \kelvin-hertz-relationship is export(:physics :derived) = Constant.new(
   name        => 'kelvin-hertz relationship',
-  value       => boltzmann-constant / ℎ,
+  value       => boltzmann-constant ÷ ℎ,
   uncertainty => 0,
   units       => 'Hz'
 );
 
 constant \kelvin-inverse-meter-relationship is export(:physics :derived) = Constant.new(
   name        => 'kelvin-inverse meter relationship',
-  value       => boltzmann-constant / (c × ℎ),
+  value       => boltzmann-constant ÷ (c × ℎ),
   uncertainty => 0,
   units       => 'm⁻¹'
 );
@@ -479,28 +479,28 @@ constant \kelvin-joule-relationship is export(:physics :derived) = Constant.new(
 
 constant \kelvin-kilogram-relationship is export(:physics :derived) = Constant.new(
   name        => 'kelvin-kilogram relationship',
-  value       => boltzmann-constant / c²,
+  value       => boltzmann-constant ÷ c²,
   uncertainty => 0,
   units       => 'kg'
 );
 
 constant \kilogram-electron-volt-relationship is export(:physics :derived) = Constant.new(
   name        => 'kilogram-electron volt relationship',
-  value       => c² / q,
+  value       => c² ÷ q,
   uncertainty => 0,
   units       => 'eV'
 );
 
 constant \kilogram-hertz-relationship is export(:physics :derived) = Constant.new(
   name        => 'kilogram-hertz relationship',
-  value       => c² / ℎ,
+  value       => c² ÷ ℎ,
   uncertainty => 0,
   units       => 'Hz'
 );
 
 constant \kilogram-inverse-meter-relationship is export(:physics :derived) = Constant.new(
   name        => 'kilogram-inverse meter relationship',
-  value       => c / ℎ,
+  value       => c ÷ ℎ,
   uncertainty => 0,
   units       => 'm⁻¹'
 );
@@ -517,28 +517,28 @@ constant \K0               is export(:DEFAULT :physics :derived) := kilogram-jou
 
 constant \kilogram-kelvin-relationship is export(:physics :derived) = Constant.new(
   name        => 'kilogram-kelvin relationship',
-  value       => c² / boltzmann-constant,
+  value       => c² ÷ boltzmann-constant,
   uncertainty => 0,
   units       => 'K'
 );
 
 constant \loschmidt-constant-stp is export(:physics :derived) = Constant.new(
   name        => 'Loschmidt constant (273.15 K, 100 kPa)',
-  value       => 100000 / boltzmann-constant / 273.15,
+  value       => 100000 ÷ boltzmann-constant ÷ 273.15,
   uncertainty => 0,
   units       => 'm⁻³'
 );
 
 constant \loschmidt-constant-ntp is export(:physics :derived) = Constant.new(
   name        => 'Loschmidt constant (273.15 K, 101.325 kPa)',
-  value       => 101325 / boltzmann-constant / 273.15,
+  value       => 101325 ÷ boltzmann-constant ÷ 273.15,
   uncertainty => 0,
   units       => 'm⁻³'
 );
 
 constant \mag-flux-quantum is export(:physics :derived) = Constant.new(
   name        => 'mag. flux quantum',
-  value       => ℎ / 2 / q,
+  value       => ℎ ÷ 2 ÷ q,
   uncertainty => 0,
   units       => 'Wb'
 );
@@ -560,14 +560,14 @@ constant \molar-planck-constant is export(:physics :derived) = Constant.new(
 
 constant \molar-volume-of-ideal-gas-stp is export(:physics :derived) = Constant.new(
   name        => 'molar volume of ideal gas (273.15 K, 100 kPa)',
-  value       => Na × boltzmann-constant × 273.15 / 100000,
+  value       => Na × boltzmann-constant × 273.15 ÷ 100000,
   uncertainty => 0,
   units       => 'm³·mol⁻¹'
 );
 
 constant \molar-volume-of-ideal-gas-ntp is export(:physics :derived) = Constant.new(
   name        => 'molar volume of ideal gas (273.15 K, 101.325 kPa)',
-  value       => Na × boltzmann-constant × 273.15 / 101325,
+  value       => Na × boltzmann-constant × 273.15 ÷ 101325,
   uncertainty => 0,
   units       => 'm³·mol⁻¹'
 );
@@ -609,7 +609,7 @@ constant \reduced-planck-constant-in-eV-s is export(:physics :derived) = Constan
 
 constant \reduced-planck-constant-times-c-in-MeV-fm is export(:physics :measured) = Constant.new(
   name        => 'reduced Planck constant times c in MeV fm',
-  value       => ℎ × c,
+  value       => ℏ × c ÷ q × 1000000000,
   uncertainty => 0,
   units       => 'MeV·fm'
 );
@@ -1312,8 +1312,8 @@ constant \fermi-coupling-constant is export(:physics :measured) = Constant.new(
 
 constant \fine-structure-constant is export(:DEFAULT :physics :measured) = Constant.new(
   name        => 'fine-structure constant',
-  value       => 7.2973525693e-3,
-  uncertainty => 0.0000000011e-3,
+  value       => 0.0072973525693,
+  uncertainty => 0.0000000000011,
   units       => '',
   symbol      => 'α'
 );
@@ -2646,11 +2646,11 @@ my constant k  is export(:DEFAULT :math) := sierpinski-gamma;
 # Use them as units
 
 sub postfix:<c>  (Real $value) is export(:DEFAULT :physics :fundamental :defined) {
-    return c*$value;
+    return c×$value;
 }
 
 sub postfix:<g>  (Real $value) is export(:DEFAULT :physics :defined) {
-    return g*$value;
+    return g×$value;
 }
 
 sub postfix:<eV>  (Real $value) is export(:DEFAULT :physics :derived) {

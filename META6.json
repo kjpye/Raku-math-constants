@@ -1,6 +1,7 @@
 {
     "authors" : [
-	"JJ Merelo"
+	"JJ Merelo",
+	"K J Pye"
     ],
     "build-depends" : [ ],
     "depends" : [ ],
@@ -18,5 +19,5 @@
         "Test",
         "Test::META"
     ],
-    "version" : "0.1.1"
+    "version" : "0.1.2"
 }

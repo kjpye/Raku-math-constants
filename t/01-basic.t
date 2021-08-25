@@ -18,13 +18,14 @@ my @num-constants-names = <
   elementary-charge
   euler-mascheroni-gamma
   eV
+  F
   G
+  gas-constant
   gauss-constant
   glaisher-kinkelin-constant
   golomb-dickman-constant
   k
   k0
-  K0
   khinchin-constant
   L
   lp
@@ -57,12 +58,10 @@ my @num-constants-names = <
 my @num-constants;
 @num-constants-names ==> map  { EVAL $_  }  ==> @num-constants;
 
-@num-constants.map( { is .WHAT, (Num), "Type OK"} );
+@num-constants.map( { is .value.WHAT, (Num), "Type OK"} );
 
 my @rat-constants-names = <
   α
-  gas-constant
-  F
   fine-structure-constant
   g
 >;
@@ -70,22 +69,23 @@ my @rat-constants-names = <
 my @rat-constants;
 @rat-constants-names ==> map  { EVAL $_  }  ==> @rat-constants;
 
-@rat-constants.map( { is .WHAT, (Rat), "Type OK"} );
+@rat-constants.map( { is .value.WHAT, (Rat), "Type OK"} );
 
 my @int-constants-names = <
   c
+  K0
 >;
 
 my @int-constants;
 @int-constants-names ==> map  { EVAL $_  }  ==> @int-constants;
 
-@int-constants.map( { is .WHAT, (Int), "Type OK"} );
+@int-constants.map( { is .value.WHAT, (Int), "Type OK"} );
 
-is-approx ℎ/(2*π), ℏ, "Planck's constants";
-is-approx φ, (1 + sqrt(5))/2, "Golden ratio";
-is-approx α, 0.00729735256, "Fine structure";
-is-approx q²/(4*π*ε0*ℏ*c), α, "Fine structure constant";
-is-approx L, 6.022140857e23, "Avogadro's number";
+is-approx ℎ/(2*π), ℏ.value, "Planck's constants";
+is-approx φ.value, (1 + sqrt(5))/2, "Golden ratio";
+is-approx α.value, 0.00729735256, "Fine structure";
+is-approx q²/(4*π*ε0*ℏ*c), α.value, "Fine structure constant";
+is-approx L.value, 6.022140857e23, "Avogadro's number";
 
 is-approx 0.1c, c/10, "Speed of light as unit";
 
